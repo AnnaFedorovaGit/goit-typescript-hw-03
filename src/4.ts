@@ -27,7 +27,7 @@ class Key {
 class Person {
     constructor(private key: Key) { }
     
-    getKey() {
+    getKey(): Key {
         return this.key;
     }
 }
@@ -38,7 +38,7 @@ abstract class House {
 
     constructor(protected key: Key) {}
     
-    comeIn(tenant: Person) { 
+    comeIn(tenant: Person): void { 
         if(this.door) { 
             this.tenants.push(tenant);
         }
@@ -48,7 +48,7 @@ abstract class House {
 }
 
 class MyHouse extends House { 
-    openDoor(key: Key) { 
+    openDoor(key: Key): void { 
         if (this.key.getSignature() === key.getSignature()) { 
             this.door = true;
         }
